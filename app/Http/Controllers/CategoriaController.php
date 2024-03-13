@@ -37,12 +37,17 @@ class CategoriaController extends Controller
 
     public function edit(Categoria $categoria)
     {
-        //
+        return view('categorias/categoria_edit', ['categoria' => $categoria]);
     }
 
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->categoria->where('id', $id)->update($request->except(['_token', '_method']));
+
+        if ($updated) {
+            return redirect()->back()->with('message', 'Successfully updated');
+        }
+        return redirect()->back()->with('message', 'Erro update');
     }
 
     public function destroy(string $id)
