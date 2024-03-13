@@ -22,12 +22,20 @@ class CategoriaController extends Controller
 
     public function create()
     {
-        //
+        return view('categorias/categoria_create');
     }
 
     public function store(Request $request)
     {
-        //
+        $created = $this->categoria->create([
+            'nome' => $request->input('nome'),
+            'descricao' => $request->input('descricao'),
+        ]);
+
+        if ($created) {
+            return redirect()->back()->with('message', 'Successfully created');
+        }
+        return redirect()->back()->with('message', 'Erro create');
     }
 
     public function show(Categoria $categoria)
