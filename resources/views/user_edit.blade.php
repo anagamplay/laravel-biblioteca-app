@@ -1,7 +1,7 @@
 @extends('master')
 @section('content')
 
-<h2>Users</h2>
+<h2>Edit</h2>
 
 @if (session()->has('message'))
 {{ session()->get('message') }}
