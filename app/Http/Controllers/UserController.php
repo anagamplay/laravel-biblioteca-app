@@ -9,30 +9,23 @@ use App\Models\User;
 class UserController extends Controller
 {
     public readonly User $user;
+
     public function __construct()
     {
         $this->user = new User();
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $users = $this->user->all();
-        return view('users', ['users' => $users]);
+        return view('users/users', ['users' => $users]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('user_create');
+        return view('users/user_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $created = $this->user->create([
@@ -49,12 +42,9 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Erro create');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(User $user)
     {
-        return view('user_show', ['user' => $user]);
+        return view('users/user_show', ['user' => $user]);
     }
 
     /**
@@ -62,12 +52,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user_edit', ['user' => $user]);
+        return view('users/user_edit', ['user' => $user]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         $updated = $this->user->where('id', $id)->update($request->except(['_token', '_method']));
@@ -78,9 +65,6 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Erro update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $this->user->where('id', $id)->delete();
