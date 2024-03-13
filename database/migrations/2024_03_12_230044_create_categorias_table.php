@@ -6,12 +6,9 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        Schema::create('livro_categorias', function (Blueprint $table) {
+        Schema::create('categorias', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->text('descricao');
@@ -19,11 +16,8 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('livro_categorias');
+        Schema::dropIfExists('categorias');
     }
 };

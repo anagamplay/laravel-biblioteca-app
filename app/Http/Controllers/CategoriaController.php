@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LivroCategoria;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class LivroCategoriaController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class LivroCategoriaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(LivroCategoria $livroCategoria)
+    public function show(Categoria $categoria)
     {
         //
     }
@@ -42,7 +42,7 @@ class LivroCategoriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(LivroCategoria $livroCategoria)
+    public function edit(Categoria $categoria)
     {
         //
     }
@@ -50,7 +50,7 @@ class LivroCategoriaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, LivroCategoria $livroCategoria)
+    public function update(Request $request, Categoria $categoria)
     {
         //
     }
@@ -58,7 +58,7 @@ class LivroCategoriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(LivroCategoria $livroCategoria)
+    public function destroy(Categoria $categoria)
     {
         //
     }

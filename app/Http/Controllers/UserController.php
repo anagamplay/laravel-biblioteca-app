@@ -47,9 +47,6 @@ class UserController extends Controller
         return view('users/user_show', ['user' => $user]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(User $user)
     {
         return view('users/user_edit', ['user' => $user]);
