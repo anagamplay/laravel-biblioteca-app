@@ -45,16 +45,16 @@ class UserController extends Controller
         if ($created) {
             return redirect()->back()->with('message', 'Successfully created');
         }
-        
+
         return redirect()->back()->with('message', 'Erro create');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user)
     {
-        //
+        return view('user_show', ['user' => $user]);
     }
 
     /**
