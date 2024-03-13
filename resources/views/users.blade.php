@@ -4,7 +4,7 @@
 <h2>Users</h2>
 <ul>
     @foreach ($users as $user)
-        <li>{{$user->firstName}}</li>
+        <li>{{$user->firstName}} | <a href="{{ route('users.edit', ['user' => $user->id]) }}">Edit</a> | <a href="">Delete</a></li>
     @endforeach
 </ul>
 
