@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -65,7 +64,6 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $this->user->where('id', $id)->delete();
-
         return redirect()->route('users.index');
     }
 }

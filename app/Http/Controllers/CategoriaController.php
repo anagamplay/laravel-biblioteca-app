@@ -7,59 +7,47 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public readonly Categoria $categoria;
+
+    public function __construct()
     {
-        //
+        $this->categoria = new Categoria();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index() 
+    {
+        $categorias = $this->categoria->all();
+        return view('categorias/categorias', ['categorias' => $categorias]);
+    }
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Categoria $categoria)
     {
-        //
+        return view('categorias/categoria_show', ['categoria' => $categoria]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Categoria $categoria)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Categoria $categoria)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Categoria $categoria)
+    public function destroy(string $id)
     {
-        //
+        $this->categoria->where('id', $id)->delete();
+        return redirect()->route('categorias.index');
     }
 }

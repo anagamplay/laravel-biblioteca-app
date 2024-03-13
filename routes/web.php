@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\LivroCategoriaController;
+use App\Http\Controllers\CategoriaController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
@@ -10,4 +10,4 @@ Route::get('/', action:[HomeController::class, 'index'])->name('home');
 
 Route::get('/users', action:[UserController::class, 'index'])->name('users.index');
 Route::resource('users', UserController::class);
-Route::resource('livro_categorias', LivroCategoriaController::class);
+Route::resource('categorias', CategoriaController::class);
