@@ -1,11 +1,6 @@
 @extends('master')
 @section('content')
 
-<h2>Users</h2>
-
-<ul>
-    @foreach($users as $user)
-        <li>{{$user->firstName}}</li>
-</ul>
+<h2>Home</h2>
 
 @endsection
