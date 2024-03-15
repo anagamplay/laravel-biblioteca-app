@@ -30,6 +30,10 @@ ul {
     margin: 0;
 }
 
+#userIcon {
+    width: 30px;
+}
+
 * {
     margin: 0;
     padding: 0;
