@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('ano_de_publicacao');
 
             $table->unsignedBigInteger('id_categoria');
-            $table->foreign('id_categoria')->references('id')->on('livro_categorias')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_categoria')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
 
             $table->integer('qtd_disponivel');
             $table->timestamps();

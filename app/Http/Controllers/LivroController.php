@@ -7,59 +7,60 @@ use Illuminate\Http\Request;
 
 class LivroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public readonly Livro $livro;
+
+    public function __construct()
     {
-        //
+        $this->livro = new Livro();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function index() 
+    {
+        $livros = $this->livro->all();
+        return view('livros/livros', ['livros' => $livros]);
+    }
+
     public function create()
     {
-        //
+        return view('livros/livro_create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $created = $this->livro->create([
+            'nome' => $request->input('nome'),
+            'descricao' => $request->input('descricao'),
+        ]);
+
+        if ($created) {
+            return redirect()->back()->with('message', 'Successfully created');
+        }
+        return redirect()->back()->with('message', 'Erro create');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Livro $livro)
+    public function show(livro $livro)
     {
-        //
+        return view('livros/livro_show', ['livro' => $livro]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Livro $livro)
+    public function edit(livro $livro)
     {
-        //
+        return view('livros/livro_edit', ['livro' => $livro]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Livro $livro)
+    public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->livro->where('id', $id)->update($request->except(['_token', '_method']));
+
+        if ($updated) {
+            return redirect()->back()->with('message', 'Successfully updated');
+        }
+        return redirect()->back()->with('message', 'Erro update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Livro $livro)
+    public function destroy(string $id)
     {
-        //
+        $this->livro->where('id', $id)->delete();
+        return redirect()->route('livros.index');
     }
 }

@@ -28,7 +28,7 @@
     <br>
     <div class="row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-            <a href="#" class="myCard">
+            <a href="{{ route('livros.index') }}" class="myCard">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Livros</h5>

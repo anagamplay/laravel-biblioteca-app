@@ -35,5 +35,6 @@
     <br>
 
     @yield('content')
+    <br>
 </body>
 </html>
