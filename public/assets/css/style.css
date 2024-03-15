@@ -1,11 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
-body {
- font-family: 'Abel', sans-serif;   
+header {
+    background-color: #891232;
+    height: 120px; 
+    width: 100%; 
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header, nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+#myNavbar {
+    height: 50px;
+}
+
+#myButton {
+    background-color: #891232; 
+    border-color: #891232;
+    color:white; 
 }
 
 ul {
     list-style: none;
     padding: 0;
     margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
 }
