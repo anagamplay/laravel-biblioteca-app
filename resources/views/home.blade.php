@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="col-sm-6">
-            <a href="#" class="myCard">
+            <a href="{{ route('categorias.index') }}" class="myCard">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Categorias</h5>
