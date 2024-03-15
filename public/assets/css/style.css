@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 header {
-    background-color: #891232;
+    background-color: #909091;
     height: 120px; 
     width: 100%; 
     color: white;
@@ -32,6 +32,11 @@ ul {
 
 #userIcon {
     width: 30px;
+}
+
+.myCard {
+    text-decoration: none; 
+    color: inherit;
 }
 
 * {
